@@ -1,0 +1,25 @@
+# doc-convert skill 运行时依赖
+#
+# 只包含本地格式转换实际用到的库。引擎包（docconvert-1.0.0-py3-none-any.whl）
+# 以 --no-deps 安装，其 METADATA 里钉住的服务端组件（FastAPI / Redis / RQ /
+# boto3 / uvicorn / prometheus-client）在本 skill 中不会被导入，故不安装。
+#
+# 版本与本 skill 验证时一致；传输依赖由 pip 按各包自身元数据解析。
+
+# PDF 解析、渲染与 Markdown 抽取
+pymupdf==1.26.3
+pymupdf4llm==0.0.27
+
+# PDF -> DOCX 可编辑重建
+pdf2docx==0.5.8
+
+# DOCX 读写与排版
+python-docx==1.2.0
+
+# 内置 Pandoc（Markdown/HTML/DOCX 互转）
+pypandoc-binary==1.17
+
+# 配置与安全校验
+pydantic==2.14.3
+pydantic-settings==2.16.2
+defusedxml==0.7.1
